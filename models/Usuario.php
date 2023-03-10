@@ -51,12 +51,12 @@ class Usuario extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nom' => 'Nom',
-            'ap' => 'Ap',
-            'am' => 'Am',
+            'nom' => 'Nombre',
+            'ap' => 'Apellido Paterno',
+            'am' => 'Apellido Materno',
             'correo' => 'Correo',
-            'pass' => 'Pass',
-            'tel' => 'Tel',
+            'pass' => 'Contraseña',
+            'tel' => 'Telefono',
             'tipo' => 'Tipo',
         ];
     }

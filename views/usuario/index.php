@@ -13,6 +13,24 @@ use yii\grid\GridView;
 $this->title = 'Usuarios';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+        body{
+            background-image: url('<?= Yii::getAlias('@web')?>/img/Fondo.jpg');
+            background-size: cover;
+        }
+        .btn{
+            border: none;
+            outline: none;
+        }
+        h1, h2, h3, h4, h5, h6, p {
+            color: white;
+        }
+        .fon{
+            background-color: white;
+        }
+        
+
+</style>
 <div class="usuario-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -20,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Usuario', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+<div class= 'fon'>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -46,5 +64,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-
+</div>
 </div>
