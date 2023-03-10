@@ -7,6 +7,9 @@ use yii\data\ActiveDataProvider;
 use app\models\Movimientos;
 use app\models\Sensor;
 
+
+/** @var app\models\Sensor $model */
+
 /** @var yii\web\View $this */
 /** @var app\models\Movimientos $model */
 
@@ -49,7 +52,7 @@ if(Yii::$app->user->isGuest){
         background-size: cover;
     }
 
-    h1, h3, p {
+    h1, h2, h3, p {
         color: white;
     }
 
@@ -60,7 +63,14 @@ if(Yii::$app->user->isGuest){
     <center>
         <br><br><br><h1>Bienvenido Administrador <?= Yii::$app->user->identity->nom ?> a Home Segurity</h1>
         <br><br><h3>SunLinkSystems LTD</h3>
+        <br><br>
+        <h2>El Sensor esta <?php
+            $model = Sensor::findOne(['id' => 1]);  ?>
+            <?=
+             $model->estado==1? 'Encendido' : 'Apagado' 
+            ?></h2>
         <br>
+        
     </center>
     <br><br>
 
@@ -127,7 +137,9 @@ if(Yii::$app->user->isGuest){
             <?=
              $model->estado==1? 'Encendido' : 'Apagado' 
             ?></h2>
-        <br><br>
+        <br>
+        
+        <br>
     </center>
     <h3>
         <?= Html::encode('Movimientos Registrados') ?>

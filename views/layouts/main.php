@@ -54,6 +54,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         :['label' => '', 'url' => ['/site/index']]
                     ),
             Yii::$app->user->isGuest
+                ? ['label' => '', 'url' => ['/site/index']]
+                : (
+                    Yii::$app->user->identity->tipo=="Administrador" 
+                        ? ['label' => 'Sensor', 'url' => ['/sensor/index']]
+                        :['label' => 'Sensor', 'url' => ['/sensor/index']]
+                    ),
+            Yii::$app->user->isGuest
                 ? ['label' => '', 'url' => ['/site/login']]
                 :(
                     Yii::$app->user->identity->tipo=="Administrador" 

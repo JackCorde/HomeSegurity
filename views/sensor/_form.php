@@ -12,13 +12,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'ubicacion')->textInput(['maxlength' => true]) ?>
+    <?= //$form->field($model, 'ubicacion')->textInput(['maxlength' => true]); 
+        $form->field($model, 'ubicacion')->hiddenInput()->label(false);
+    ?>
 
-    <?= $form->field($model, 'estado')->textInput() ?>
-
+    <?= //$form->field($model, 'estado')->textInput()
+        $form->field($model, 'estado')->hiddenInput()->label(false);
+    ?>
+    <center>
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Encender / Apagar', ['class' => 'btn btn-success']) ?>
     </div>
+    </center>
 
     <?php ActiveForm::end(); ?>
 

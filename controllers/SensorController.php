@@ -91,6 +91,28 @@ class SensorController extends Controller
      */
     public function actionUpdate($id)
     {
+       $model = $this->findModel($id);
+       $x=$this->request->post();
+
+       if(isset($x["Sensor"])){
+       if($x["Sensor"]["estado"] == 1)
+       $x["Sensor"]["estado"]="0";
+       else
+       $x["Sensor"]["estado"]="1";
+       }
+       //var_dump($x);
+        if ($this->request->isPost && $model->load($x) && $model->save()) {
+           return $this->redirect(['update', 'id' => $model->id]);
+           //return null;
+        }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionUpdateStatus($id)
+    {
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
@@ -101,7 +123,6 @@ class SensorController extends Controller
             'model' => $model,
         ]);
     }
-
     /**
      * Deletes an existing Sensor model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
